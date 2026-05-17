@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.angjiax.angjiaxaigent.mapper.CartMapper">
+
+    <resultMap id="BaseResultMap" type="com.angjiax.angjiaxaigent.entity.Cart">
+            <id property="id" column="id" />
+            <result property="userId" column="userId" />
+            <result property="productId" column="productId" />
+            <result property="quantity" column="quantity" />
+            <result property="selected" column="selected" />
+            <result property="createTime" column="createTime" />
+            <result property="updateTime" column="updateTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,productId,quantity,selected,createTime,
+        updateTime
+    </sql>
+</mapper>

@@ -1,0 +1,25 @@
+create table if not exists product
+(
+    id             bigint auto_increment comment 'id' primary key,
+    productName    varchar(200)                          not null comment '商品名称',
+    categoryName   varchar(50)                           null comment '分类名称',
+    brand          varchar(100)                          null comment '品牌',
+    originalPrice  decimal(10,2)                         null comment '原价',
+    currentPrice   decimal(10,2)                         null comment '当前售价',
+    stock          int                                   null comment '库存',
+    salesVolume    int          default 0                not null comment '月销量',
+    rating         decimal(2,1)                          null comment '综合评分',
+    platform       varchar(20)                           null comment '平台：淘宝/京东/拼多多',
+    platformUrl    varchar(500)                          null comment '商品链接',
+    imageUrl       varchar(500)                          null comment '商品图片',
+    productDesc    text                                  null comment '商品描述',
+    status         tinyint      default 1                not null comment '状态：1上架/0下架',
+    createTime     datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
+    updateTime     datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete       tinyint      default 0                not null comment '是否删除',
+    index idx_categoryName (categoryName),
+    index idx_brand (brand),
+    index idx_currentPrice (currentPrice),
+    index idx_salesVolume (salesVolume),
+    index idx_status (status)
+    ) comment '商品' collate = utf8mb4_unicode_ci;
